@@ -1,6 +1,6 @@
 # Consul 服务治理模块
 
-![Consul Logo](https://www.consul.io/assets/images/logo-5b0997bd.svg)
+![Consul Logo](https://www.consul.io/_next/static/media/consul-community_on-light.e8e68a5f.svg)
 
 > 基于 HashiCorp Consul 的轻量级服务注册与发现模块  
 > 专为 Go 微服务架构设计 | 生产级可用 | 零外部依赖
@@ -17,8 +17,7 @@
 
 ### 安装
 ```bash
-go get github.com/winksai/consul
-
+go get github.com/hashicorp/consul/api
 
 基础用法
         // 初始化客户端
@@ -40,3 +39,6 @@ go get github.com/winksai/consul
         
         // 发现用户服务
         userServiceAddr, err := consul.GetServiceFromConsul("user-service")
+
+整体架构
+[客户端] → [API 网关 (Gin HTTP)] → [Consul 服务发现] → [gRPC 微服务] → [返回结果]
